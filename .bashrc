@@ -25,7 +25,7 @@ test -r /etc/bash.bashrc && source /etc/bash.bashrc
 set -o notify
 
 # Default umask
-umask 0022
+umask 0077
 
 #-------------------------------------------------------------------------------
 # Path
