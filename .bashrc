@@ -107,8 +107,8 @@ P="\$"
 
 prompt_color() {
     unset PROMPT_COMMAND
-    PS1="${COLOR2}\W ${COLOR1}${P}${PS_CLEAR}${PS_END} "
-    PS2="${Invis}\W${PS_CLEAR} ${COLOR1}>${PS_CLEAR}${PS_END} "
+    PS1="[${COLOR2}\W${PS_CLEAR}] ${COLOR1}${P}${PS_CLEAR}${PS_END} "
+    PS2="${Invis}[\W]${PS_CLEAR} ${COLOR1}>${PS_CLEAR}${PS_END} "
     export PS1 PS2
 }
 
