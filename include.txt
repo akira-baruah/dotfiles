@@ -1,3 +1,4 @@
 .bashrc
 .bash_profile
 .bash_aliases
+.emacs.d
