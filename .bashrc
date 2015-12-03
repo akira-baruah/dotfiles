@@ -20,6 +20,7 @@
 
 # System bashrc
 test -r /etc/bash.bashrc && source /etc/bash.bashrc
+test -r /etc/skel/.bashrc && source /etc/skel/.bashrc
 
 # Notify bg task completion immediately
 set -o notify
