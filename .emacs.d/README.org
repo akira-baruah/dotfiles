@@ -35,6 +35,13 @@ Delete trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+END_SRC
 
+** Column Numbers
+
+Enable column numbers.
+#+BEGIN_SRC emacs-lisp
+(column-number-mode)
+#+END_SRC
+
 * Packages
 
 ** General
