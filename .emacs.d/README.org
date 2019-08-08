@@ -1,5 +1,11 @@
 * Settings
 
+** Key Definitions
+
+#+BEGIN_SRC emacs-lisp
+(setq akirabaruah/leader-key (kbd "SPC"))
+#+END_SRC
+
 ** Backup Files
 
 Save backups of open files to /tmp (or equivalent) directory.
@@ -27,4 +33,34 @@ Delete trailing whitespace on save.
 
 #+BEGIN_SRC emacs-lisp
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+END_SRC
+
+* Packages
+
+** General
+
+Simplify key bindings.
+
+#+BEGIN_SRC emacs-lisp
+(use-package general :ensure t)
+#+END_SRC
+
+** Evil
+
+Use Vim keybindings to avoid Repetitive Strain Injury (RSI).
+
+#+BEGIN_SRC emacs-lisp
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-C-i-jump nil)  ;; C-i is also <tab>; don't use it for evil
+  :config
+  (evil-mode))
+#+END_SRC
+
+** Hydra
+
+#+BEGIN_SRC emacs-lisp
+(use-package hydra
+  :ensure t)
 #+END_SRC

@@ -33,14 +33,6 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Enable evil-mode
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-C-i-jump nil)  ;; C-i is also <tab>; don't use it for evil
-  :config
-  (evil-mode))
-
 ;; Enable Org
 (use-package org :ensure org-plus-contrib)
 
