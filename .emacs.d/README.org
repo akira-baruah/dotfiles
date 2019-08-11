@@ -42,6 +42,15 @@ Enable column numbers.
 (column-number-mode)
 #+END_SRC
 
+** Line Numbers
+
+Enable line numbers. See https://www.emacswiki.org/emacs/LineNumbers.
+
+#+BEGIN_SRC emacs-lisp
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+#+END_SRC
+
 * Packages
 
 ** General
