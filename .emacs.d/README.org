@@ -80,7 +80,71 @@ Use Vim keybindings to avoid Repetitive Strain Injury (RSI).
 
 ** Hydra
 
+Hydras are configurable key command menus.
+
 #+BEGIN_SRC emacs-lisp
 (use-package hydra
   :ensure t)
+#+END_SRC
+
+Enable ~:hydra~ keyword for ~use-package~. See
+https://gitlab.com/to1ne/use-package-hydra.
+
+#+BEGIN_SRC emacs-lisp
+(use-package use-package-hydra
+  :requires hydra)
+#+END_SRC
+
+* Hydra Menus
+
+Definitions for Hydra menus. Requires the ~hydra~ package installed above.
+
+** General
+
+First, create a top-level leader key mapping using ~general~.
+
+#+BEGIN_SRC emacs-lisp
+(general-define-key
+  :states '(normal visual emacs)
+  :prefix "SPC"
+  :non-normal-prefix "M-SPC"
+  "f" 'hydra-file/body
+  "w" 'hydra-window/body)
+#+END_SRC
+
+** File
+
+Basic file navigation.
+
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-file (:color blue :hint nil) "
+File Hydra
+"
+  ("e" load-file "load elisp")
+  ("f" find-file "find")
+  ("s" save-buffer "save"))
+#+END_SRC
+
+** Window
+
+Window manipulation.
+
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-window (:hint nil) "
+Window Hydra
+^Movement^  ^Manipulation^
+^--------^  ^------------^---------
+_j_: down   _-_: split vertically
+_k_: up     _/_: split horizontally
+_h_: left   _c_: close window
+_l_: right
+"
+  ("j" evil-window-down)
+  ("k" evil-window-up)
+  ("h" evil-window-left)
+  ("l" evil-window-right)
+  ("-" split-window-vertically)
+  ("/" split-window-horizontally)
+  ("c" delete-window)
+  ("SPC" nil "cancel" :color blue))
 #+END_SRC
