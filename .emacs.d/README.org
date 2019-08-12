@@ -95,6 +95,41 @@ https://gitlab.com/to1ne/use-package-hydra.
   :requires hydra)
 #+END_SRC
 
+** Doom Themes
+
+Cool themes from https://github.com/hlissner/emacs-doom-themes.
+
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one t))
+#+END_SRC
+
+** Doom Modeline
+
+See https://github.com/seagle0128/doom-modeline.
+
+#+BEGIN_SRC emacs-lisp
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+#+END_SRC
+
+** All the Icons
+
+Nice fonts used by Doom packages. For example, see
+https://github.com/jacktasia/beautiful-emacs/blob/master/init.org.
+
+#+BEGIN_SRC emacs-lisp
+(use-package doom-modeline
+  :if window-system
+  :ensure t
+  :config
+  (when (not (member "all-the-icons" (font-family-list)))
+    (all-the-icons-install-fonts t)))
+#+END_SRC
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
