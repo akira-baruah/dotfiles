@@ -83,6 +83,12 @@ Use Vim keybindings to avoid Repetitive Strain Injury (RSI).
   :init
   (setq evil-want-C-i-jump nil)  ;; C-i is also <tab>; don't use it for evil
   :config
+  ;; For some reason, Magit's git-commit-mode defaults to emacs state
+  ;; instead of normal or insert states. The following line ensures
+  ;; that we start that mode with insert instead of emacs state. See
+  ;; https://github.com/emacs-evil/evil/issues/1145 and
+  ;; https://emacs.stackexchange.com/questions/14008/default-magit-commit-state-in-evil.
+  (add-hook 'with-editor-mode-hook 'evil-insert-state)
   (evil-mode))
 #+END_SRC
 
