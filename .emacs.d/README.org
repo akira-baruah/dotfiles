@@ -144,6 +144,29 @@ https://github.com/jacktasia/beautiful-emacs/blob/master/init.org.
     (all-the-icons-install-fonts t)))
 #+END_SRC
 
+** YASnippet
+
+Reusable text snippets. See https://github.com/joaotavora/yasnippet.
+
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode))
+#+END_SRC
+
+Yasnippet doesn't include snippets out of the box, so include the
+official package of pre-written snippets. See
+https://github.com/AndreaCrotti/yasnippet-snippets.
+
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet-snippets
+  :ensure t
+  :requires yasnippet
+  :config
+  (yas-global-mode))
+#+END_SRC
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
