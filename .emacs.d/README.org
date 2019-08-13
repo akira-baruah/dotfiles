@@ -167,6 +167,18 @@ https://github.com/AndreaCrotti/yasnippet-snippets.
   (yas-global-mode))
 #+END_SRC
 
+** Company
+
+"COMPlete ANYthing" framework for text completion. See
+https://company-mode.github.io/.
+
+#+begin_src emacs-lisp
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
+#+end_src
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
