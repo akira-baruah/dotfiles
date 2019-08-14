@@ -104,7 +104,9 @@ https://github.com/emacs-evil/evil-collection.
 #+begin_src emacs-lisp
 (use-package evil-collection
   :ensure t
-  :requires evil)
+  :requires evil
+  :config
+  (evil-collection-init 'buff-menu))
 #+end_src
 
 ** Hydra
@@ -212,9 +214,10 @@ First, create a top-level menu launched by the leader key.
 Leader Hydra
 "
   ("f" hydra-file/body "file")
+  ("b" hydra-buffer/body "buffer")
   ("w" hydra-window/body "window")
   ("q" save-buffers-kill-emacs "quit emacs")
-  ("SPC" "cancel"))
+  ("SPC" nil "cancel"))
 #+END_SRC
 
 ** File
@@ -229,6 +232,18 @@ File Hydra
   ("f" find-file "find")
   ("s" save-buffer "save"))
 #+END_SRC
+
+** Buffer
+
+Buffer manipulation.
+
+#+begin_src emacs-lisp
+(defhydra hydra-buffer (:color blue) "
+Buffer Hydra
+"
+  ("b" switch-to-buffer "switch to buffer")
+  ("SPC" nil "cancel"))
+#+end_src
 
 ** Window
 
