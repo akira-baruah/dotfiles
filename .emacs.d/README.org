@@ -81,7 +81,9 @@ Use Vim keybindings to avoid Repetitive Strain Injury (RSI).
   (:states '(normal visual emacs)
     "SPC" 'hydra-leader/body)
   :init
-  (setq evil-want-C-i-jump nil)  ;; C-i is also <tab>; don't use it for evil
+  (setq evil-want-C-i-jump nil)  ;; C-i is also <tab>; don't use it for evil.
+  (setq evil-want-keybinding nil)  ;; Use evil-collection for bindings
+                                   ;; in other packages.
   :config
   ;; For some reason, Magit's git-commit-mode defaults to emacs state
   ;; instead of normal or insert states. The following line ensures
@@ -91,6 +93,19 @@ Use Vim keybindings to avoid Repetitive Strain Injury (RSI).
   (add-hook 'with-editor-mode-hook 'evil-insert-state)
   (evil-mode))
 #+END_SRC
+
+*** Evil Collection
+
+Common Evil keybindings for other modes. Don't initialize the whole
+package here; instead setup various components within the requiring
+~use-package~ definition. See
+https://github.com/emacs-evil/evil-collection.
+
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :ensure t
+  :requires evil)
+#+end_src
 
 ** Hydra
 
@@ -175,7 +190,12 @@ https://company-mode.github.io/.
 #+begin_src emacs-lisp
 (use-package company
   :ensure t
+  :requires evil-collection
+  :init
+  (setq company-idle-delay 0)
   :config
+  (evil-collection-company-setup)
+  (add-to-list 'company-backends 'company-ispell)
   (global-company-mode))
 #+end_src
 
