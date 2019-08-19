@@ -118,14 +118,6 @@ Hydras are configurable key command menus.
   :ensure t)
 #+END_SRC
 
-Enable ~:hydra~ keyword for ~use-package~. See
-https://gitlab.com/to1ne/use-package-hydra.
-
-#+BEGIN_SRC emacs-lisp
-(use-package use-package-hydra
-  :requires hydra)
-#+END_SRC
-
 ** Doom Themes
 
 Cool themes from https://github.com/hlissner/emacs-doom-themes.
