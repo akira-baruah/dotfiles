@@ -106,7 +106,7 @@ https://github.com/emacs-evil/evil-collection.
   :ensure t
   :requires evil
   :config
-  (evil-collection-init 'buff-menu))
+  (evil-collection-init '(buff-menu dired)))
 #+end_src
 
 ** Hydra
