@@ -208,6 +208,7 @@ Leader Hydra
   ("f" hydra-file/body "file")
   ("b" hydra-buffer/body "buffer")
   ("w" hydra-window/body "window")
+  ("E" hydra-editor/body "editor")
   ("q" save-buffers-kill-emacs "quit emacs")
   ("SPC" nil "cancel"))
 #+END_SRC
@@ -259,4 +260,37 @@ _l_: right
   ("/" split-window-horizontally)
   ("c" delete-window)
   ("SPC" nil "cancel" :color blue))
+#+END_SRC
+
+** Editor
+
+Editor configuration.
+
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-editor (:color blue :hint nil) "
+Emacs Hydra
+"
+  ("r" load-editor-init "reload init file")
+  ("i" find-editor-init "open init file")
+  ("o" find-editor-config "open config")
+  ("SPC" nil "cancel" :color blue))
+#+END_SRC
+
+Define custom functions for editor init and config files used above.
+
+#+BEGIN_SRC emacs-lisp
+(defun load-editor-init ()
+  "Load editor initialization file."
+  (interactive)
+  (load-file user-init-file))
+
+(defun find-editor-init ()
+  "Open the editor initialization file for modification."
+  (interactive)
+  (find-file user-init-file))
+
+(defun find-editor-config ()
+  "Open the editor config file for modification."
+  (interactive)
+  (find-file user-config-file))
 #+END_SRC

@@ -37,7 +37,8 @@
 (use-package org :ensure org-plus-contrib)
 
 ;; Load Org-based init file
-(org-babel-load-file (expand-file-name "README.org" user-emacs-directory))
+(defvar user-config-file (expand-file-name "README.org" user-emacs-directory))
+(org-babel-load-file user-config-file)
 
 ;; Message how long it took to load everything (minus packages)
 (let ((elapsed (float-time (time-subtract (current-time)
