@@ -17,3 +17,7 @@ fi
 
 # emacs
 alias emacs='emacs -nw'
+
+# Track configuration files using Git bare repo. See
+# https://www.atlassian.com/git/tutorials/dotfiles for more info.
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
