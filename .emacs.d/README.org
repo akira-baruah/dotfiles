@@ -105,8 +105,14 @@ https://github.com/emacs-evil/evil-collection.
 (use-package evil-collection
   :ensure t
   :requires evil
-  :config
-  (evil-collection-init '(buff-menu dired)))
+  :init
+  ;; See evil-collection-mode-list definition in
+  ;; https://github.com/emacs-evil/evil-collection/blob/master/evil-collection.el
+  ;; for available modes and how to add them below.
+  (evil-collection-init
+    '((buff-menu "buff-menu")
+      dired
+      (package-menu package))))
 #+end_src
 
 ** Hydra
