@@ -199,6 +199,16 @@ https://company-mode.github.io/.
   (global-company-mode))
 #+end_src
 
+** Diff HL
+
+#+begin_src emacs-lisp
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode)
+  (unless (display-graphic-p) (diff-hl-margin-mode)))
+#+end_src
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
