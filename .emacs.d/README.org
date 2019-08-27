@@ -221,6 +221,15 @@ https://company-mode.github.io/.
   (linum-relative-mode))
 #+end_src
 
+** Centered Cursor Mode
+
+#+begin_src emacs-lisp
+(use-package centered-cursor-mode
+  :ensure t
+  :config
+  (global-centered-cursor-mode))
+#+end_src
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
