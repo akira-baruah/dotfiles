@@ -42,6 +42,7 @@ Delete trailing whitespace on save.
 *** Column Numbers
 
 Enable column numbers.
+
 #+BEGIN_SRC emacs-lisp
 (column-number-mode)
 #+END_SRC
@@ -52,7 +53,9 @@ Enable line numbers. See https://www.emacswiki.org/emacs/LineNumbers.
 
 #+BEGIN_SRC emacs-lisp
 (when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+  (global-display-line-numbers-mode)
+  ;; https://github.com/coldnew/linum-relative#backends
+  (setq linum-relative-backend 'display-line-numbers-mode))
 #+END_SRC
 
 * Packages
@@ -207,6 +210,15 @@ https://company-mode.github.io/.
   :config
   (global-diff-hl-mode)
   (unless (display-graphic-p) (diff-hl-margin-mode)))
+#+end_src
+
+** Linum Relative
+
+#+begin_src emacs-lisp
+(use-package linum-relative
+  :ensure t
+  :config
+  (linum-relative-mode))
 #+end_src
 
 * Hydra Menus
