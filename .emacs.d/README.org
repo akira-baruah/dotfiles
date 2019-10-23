@@ -272,7 +272,18 @@ Buffer manipulation.
 Buffer Hydra
 "
   ("b" switch-to-buffer "switch to buffer")
+  ("r" revert-buffer-no-confirm "reload buffer contents")
   ("SPC" nil "cancel"))
+#+end_src
+
+Custom buffer functions used above.
+
+#+begin_src emacs-lisp
+;; See https://www.emacswiki.org/emacs/RevertBuffer#toc1.
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer :ignore-auto :noconfirm))
 #+end_src
 
 ** Window
