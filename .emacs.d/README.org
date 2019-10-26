@@ -115,8 +115,11 @@ https://github.com/emacs-evil/evil-collection.
   (evil-collection-init
     '((buff-menu "buff-menu")
       dired
+      magit
       (package-menu package))))
 #+end_src
+
+#+RESULTS:
 
 ** Hydra
 
@@ -214,7 +217,7 @@ https://company-mode.github.io/.
 
 ** Linum Relative
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (use-package linum-relative
   :ensure t
   :config
@@ -228,6 +231,33 @@ https://company-mode.github.io/.
   :ensure t
   :config
   (global-centered-cursor-mode))
+#+end_src
+
+** Magit
+
+Git interface. See https://github.com/magit/magit.
+
+#+begin_src emacs-lisp
+(use-package magit :ensure t)
+#+end_src
+
+Enable Evil keybindings for Magit. See https://github.com/emacs-evil/evil-magit.
+
+#+begin_src emacs-lisp
+(use-package evil-magit
+  :requires (evil magit)
+  :ensure t)
+#+end_src
+
+** GN Mode
+
+Major mode for gn (Generate Ninja) from https://github.com/lashtear/gn-mode.
+
+#+begin_src emacs-lisp
+(use-package gn-mode
+  :ensure t
+  :mode (("\\.gn\\'" . gn-mode)
+         ("\\.gni\\'" . gn-mode)))
 #+end_src
 
 * Hydra Menus
@@ -245,6 +275,7 @@ Leader Hydra
   ("f" hydra-file/body "file")
   ("b" hydra-buffer/body "buffer")
   ("w" hydra-window/body "window")
+  ("g" magit-status "magit")
   ("E" hydra-editor/body "editor")
   ("q" save-buffers-kill-emacs "quit emacs")
   ("SPC" nil "cancel"))
