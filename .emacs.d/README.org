@@ -260,6 +260,16 @@ Major mode for gn (Generate Ninja) from https://github.com/lashtear/gn-mode.
          ("\\.gni\\'" . gn-mode)))
 #+end_src
 
+** Flycheck
+
+On-the-fly syntax checking. See https://github.com/flycheck/flycheck.
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+#+end_src
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
