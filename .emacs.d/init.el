@@ -43,6 +43,15 @@
 (defvar user-config-file (expand-file-name "README.org" user-emacs-directory))
 (org-babel-load-file user-config-file)
 
+(defvar user-config-extra-dir (expand-file-name "extra" user-emacs-directory))
+(defun org-babel-load-dir (dir)
+  (let ((load-it (lambda (f)
+		   (org-babel-load-file (expand-file-name f dir)))
+		 ))
+    (mapc load-it (directory-files dir nil "\\.org$"))))
+(when (file-directory-p user-config-extra-dir)
+  (org-babel-load-dir user-config-extra-dir))
+
 ;; Message how long it took to load everything (minus packages)
 (let ((elapsed (float-time (time-subtract (current-time)
                                           emacs-start-time))))
