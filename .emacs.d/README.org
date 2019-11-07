@@ -270,6 +270,20 @@ On-the-fly syntax checking. See https://github.com/flycheck/flycheck.
   :init (global-flycheck-mode))
 #+end_src
 
+** Google C Style
+
+Google style formatting for C/C++ modes.
+
+#+begin_src emacs-lisp
+(use-package google-c-style
+  :ensure t
+  :init
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (google-set-c-style)
+              (google-make-newline-indent))))
+#+end_src
+
 * Hydra Menus
 
 Definitions for Hydra menus. Requires the ~hydra~ package installed above.
