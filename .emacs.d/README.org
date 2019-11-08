@@ -202,6 +202,7 @@ https://company-mode.github.io/.
   :config
   (evil-collection-company-setup)
   (add-to-list 'company-backends 'company-ispell)
+  (add-to-list 'company-backends 'company-yasnippet)
   (global-company-mode))
 #+end_src
 
@@ -282,6 +283,24 @@ Google style formatting for C/C++ modes.
             (lambda ()
               (google-set-c-style)
               (google-make-newline-indent))))
+#+end_src
+
+** Helpful
+
+See https://github.com/Wilfred/helpful.
+
+#+begin_src emacs-lisp
+(use-package helpful
+  :ensure t)
+#+end_src
+
+** Which Key
+
+See https://github.com/justbur/emacs-which-key.
+
+#+begin_src emacs-lisp
+(use-package which-key
+  :ensure t)
 #+end_src
 
 * Hydra Menus
