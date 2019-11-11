@@ -300,7 +300,9 @@ See https://github.com/justbur/emacs-which-key.
 
 #+begin_src emacs-lisp
 (use-package which-key
-  :ensure t)
+  :ensure t
+  :config
+  (which-key-mode))
 #+end_src
 
 * Hydra Menus
