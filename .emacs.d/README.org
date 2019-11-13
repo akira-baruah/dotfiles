@@ -322,7 +322,7 @@ Leader Hydra
   ("w" hydra-window/body "window")
   ("g" magit-status "magit")
   ("E" hydra-editor/body "editor")
-  ("q" save-buffers-kill-emacs "quit emacs")
+  ("Q" save-buffers-kill-emacs "quit emacs")
   ("SPC" nil "cancel"))
 #+END_SRC
 
